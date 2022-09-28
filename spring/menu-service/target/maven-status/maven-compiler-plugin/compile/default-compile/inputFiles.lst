@@ -1,0 +1,10 @@
+C:\Users\najia\Desktop\micro-restaurant-public\spring\menu-service\src\main\java\fr\univcotedazur\menus\controllers\MenuController.java
+C:\Users\najia\Desktop\micro-restaurant-public\spring\menu-service\src\main\java\fr\univcotedazur\menus\models\MenuItem.java
+C:\Users\najia\Desktop\micro-restaurant-public\spring\menu-service\src\main\java\fr\univcotedazur\menus\exceptions\MenuItemShortNameAlreadyExistsException.java
+C:\Users\najia\Desktop\micro-restaurant-public\spring\menu-service\src\main\java\fr\univcotedazur\menus\MenuStartUpLogic.java
+C:\Users\najia\Desktop\micro-restaurant-public\spring\menu-service\src\main\java\fr\univcotedazur\menus\controllers\MenusControllerAdvice.java
+C:\Users\najia\Desktop\micro-restaurant-public\spring\menu-service\src\main\java\fr\univcotedazur\menus\MenuServiceApp.java
+C:\Users\najia\Desktop\micro-restaurant-public\spring\menu-service\src\main\java\fr\univcotedazur\menus\repositories\MenuItemRepository.java
+C:\Users\najia\Desktop\micro-restaurant-public\spring\menu-service\src\main\java\fr\univcotedazur\menus\exceptions\MenuItemIdNotFoundException.java
+C:\Users\najia\Desktop\micro-restaurant-public\spring\menu-service\src\main\java\fr\univcotedazur\menus\models\Category.java
+C:\Users\najia\Desktop\micro-restaurant-public\spring\menu-service\src\main\java\fr\univcotedazur\menus\controllers\dto\ErrorDTO.java

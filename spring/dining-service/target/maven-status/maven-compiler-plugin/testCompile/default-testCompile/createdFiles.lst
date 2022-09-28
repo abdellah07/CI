@@ -1,0 +1,7 @@
+fr\univcotedazur\dining\controllers\DiningControllerTest.class
+fr\univcotedazur\dining\repositories\OrderingItemRepositoryTest.class
+fr\univcotedazur\dining\controllers\TableControllerTest.class
+fr\univcotedazur\dining\components\DiningRoomTest.class
+fr\univcotedazur\dining\repositories\TableRepositoryTest.class
+fr\univcotedazur\dining\components\TablesLayoutTest.class
+fr\univcotedazur\dining\repositories\TableOrderRepositoryTest.class

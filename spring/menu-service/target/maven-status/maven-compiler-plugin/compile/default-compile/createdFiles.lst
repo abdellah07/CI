@@ -1,0 +1,10 @@
+fr\univcotedazur\menus\controllers\dto\ErrorDTO.class
+fr\univcotedazur\menus\models\Category.class
+fr\univcotedazur\menus\MenuStartUpLogic.class
+fr\univcotedazur\menus\models\MenuItem.class
+fr\univcotedazur\menus\repositories\MenuItemRepository.class
+fr\univcotedazur\menus\exceptions\MenuItemIdNotFoundException.class
+fr\univcotedazur\menus\MenuServiceApp.class
+fr\univcotedazur\menus\controllers\MenusControllerAdvice.class
+fr\univcotedazur\menus\controllers\MenuController.class
+fr\univcotedazur\menus\exceptions\MenuItemShortNameAlreadyExistsException.class

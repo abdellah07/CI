@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: fr.univcotedazur.dining.repositories.OrderingItemRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.502 s - in fr.univcotedazur.dining.repositories.OrderingItemRepositoryTest
