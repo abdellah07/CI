@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Table} from "../../models/table.model";
 
 @Component({
   selector: 'app-table',
@@ -7,8 +8,8 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class TableComponent implements OnInit {
 
-  @Input
-  table: number | undefined;
+  @Input()
+  table: Table = {number:-1,taken:false,tableOrderId:'undefined'};
 
   constructor() { }
 

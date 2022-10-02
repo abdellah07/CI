@@ -1,0 +1,68 @@
+version: "3"
+
+services:
+
+  villagems:
+    image: selene/moonvillagems
+    networks:
+      - moonvillage-network
+      - global
+    ports:
+      - 8081:8080
+    depends_on:
+      - villagedb
+
+  villagedb:
+    image: mysql:5
+    networks:
+      - moonvillage-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=villagems
+      - MYSQL_DATABASE=villagedb
+
+
+
+  transitms:
+    image: selene/transitms
+    networks:
+      - transit-network
+      - global
+    ports:
+      - 8083:8080
+    depends_on:
+      - transitdb
+
+  transitdb:
+    image: mysql:5
+    networks:
+      - transit-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=transitms
+      - MYSQL_DATABASE=transitdb
+
+
+
+  resourcems:
+    image: selene/resourcems
+    networks:
+      - resource-network
+      - global
+    ports:
+      - 8082:8080
+    depends_on:
+      - resourcedb
+
+  resourcedb:
+    image: mysql:5
+    networks:
+      - resource-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=resourcems
+      - MYSQL_DATABASE=resourcedb
+
+networks:
+
+  moonvillage-network:
+  transit-network:
+  resource-network:
+  global:
