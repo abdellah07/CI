@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4b0a6f7b-f314-41ca-8d4f-66a271acac4a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/dto/dining/TableOrderResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/controller/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/dto/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/dto/menu/MenuItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/dto/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/dto/dining/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/dto/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/dto/dining/Table.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/dto/TableOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/dto/dining/TableOrderRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/service/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/service/MenuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/util/JsonMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/util/JsonMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/.env" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/src/main/java/fr/univcotedazur/dining/controllers/DiningController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/src/main/java/fr/univcotedazur/dining/controllers/DiningController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/src/main/java/fr/univcotedazur/dining/controllers/TableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/src/main/java/fr/univcotedazur/dining/controllers/TableController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/classes/fr/univcotedazur/dining/controllers/DiningController.class" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/classes/fr/univcotedazur/dining/controllers/DiningController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/classes/fr/univcotedazur/dining/controllers/TableController.class" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/classes/fr/univcotedazur/dining/controllers/TableController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/dining-service-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/dining-service-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/dining-service-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/dining-service-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/surefire-reports/TEST-fr.univcotedazur.dining.components.DiningRoomTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/surefire-reports/TEST-fr.univcotedazur.dining.components.DiningRoomTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/surefire-reports/TEST-fr.univcotedazur.dining.components.TablesLayoutTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/surefire-reports/TEST-fr.univcotedazur.dining.components.TablesLayoutTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/surefire-reports/TEST-fr.univcotedazur.dining.controllers.DiningControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/surefire-reports/TEST-fr.univcotedazur.dining.controllers.DiningControllerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/surefire-reports/TEST-fr.univcotedazur.dining.controllers.TableControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/surefire-reports/TEST-fr.univcotedazur.dining.controllers.TableControllerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/surefire-reports/TEST-fr.univcotedazur.dining.repositories.OrderingItemRepositoryTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/surefire-reports/TEST-fr.univcotedazur.dining.repositories.OrderingItemRepositoryTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/surefire-reports/TEST-fr.univcotedazur.dining.repositories.TableOrderRepositoryTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/surefire-reports/TEST-fr.univcotedazur.dining.repositories.TableOrderRepositoryTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/surefire-reports/TEST-fr.univcotedazur.dining.repositories.TableRepositoryTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/surefire-reports/TEST-fr.univcotedazur.dining.repositories.TableRepositoryTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/surefire-reports/fr.univcotedazur.dining.components.DiningRoomTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/surefire-reports/fr.univcotedazur.dining.components.DiningRoomTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/surefire-reports/fr.univcotedazur.dining.components.TablesLayoutTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/surefire-reports/fr.univcotedazur.dining.components.TablesLayoutTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/surefire-reports/fr.univcotedazur.dining.controllers.DiningControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/surefire-reports/fr.univcotedazur.dining.controllers.DiningControllerTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/surefire-reports/fr.univcotedazur.dining.controllers.TableControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/surefire-reports/fr.univcotedazur.dining.controllers.TableControllerTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/surefire-reports/fr.univcotedazur.dining.repositories.OrderingItemRepositoryTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/surefire-reports/fr.univcotedazur.dining.repositories.OrderingItemRepositoryTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/surefire-reports/fr.univcotedazur.dining.repositories.TableOrderRepositoryTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/surefire-reports/fr.univcotedazur.dining.repositories.TableOrderRepositoryTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dining-service/target/surefire-reports/fr.univcotedazur.dining.repositories.TableRepositoryTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dining-service/target/surefire-reports/fr.univcotedazur.dining.repositories.TableRepositoryTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/target/gateway-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/gateway-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/target/gateway-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/gateway-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kitchen-service/.env" beforeDir="false" afterPath="$PROJECT_DIR$/kitchen-service/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kitchen-service/src/main/java/fr/univcotedazur/kitchen/controllers/CookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/kitchen-service/src/main/java/fr/univcotedazur/kitchen/controllers/CookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kitchen-service/src/main/java/fr/univcotedazur/kitchen/controllers/KitchenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/kitchen-service/src/main/java/fr/univcotedazur/kitchen/controllers/KitchenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kitchen-service/target/classes/fr/univcotedazur/kitchen/controllers/CookingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/kitchen-service/target/classes/fr/univcotedazur/kitchen/controllers/CookingController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kitchen-service/target/classes/fr/univcotedazur/kitchen/controllers/KitchenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/kitchen-service/target/classes/fr/univcotedazur/kitchen/controllers/KitchenController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kitchen-service/target/kitchen-service-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/kitchen-service/target/kitchen-service-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kitchen-service/target/kitchen-service-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/kitchen-service/target/kitchen-service-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kitchen-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/kitchen-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kitchen-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/kitchen-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kitchen-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/kitchen-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kitchen-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/kitchen-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kitchen-service/target/surefire-reports/TEST-fr.univcotedazur.kitchen.components.CookingPostTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kitchen-service/target/surefire-reports/TEST-fr.univcotedazur.kitchen.components.CookingPostTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kitchen-service/target/surefire-reports/TEST-fr.univcotedazur.kitchen.components.KitchenFacadeTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kitchen-service/target/surefire-reports/TEST-fr.univcotedazur.kitchen.components.KitchenFacadeTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kitchen-service/target/surefire-reports/TEST-fr.univcotedazur.kitchen.repositories.PreparedItemRepositoryTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kitchen-service/target/surefire-reports/TEST-fr.univcotedazur.kitchen.repositories.PreparedItemRepositoryTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kitchen-service/target/surefire-reports/fr.univcotedazur.kitchen.components.CookingPostTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/kitchen-service/target/surefire-reports/fr.univcotedazur.kitchen.components.CookingPostTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kitchen-service/target/surefire-reports/fr.univcotedazur.kitchen.components.KitchenFacadeTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/kitchen-service/target/surefire-reports/fr.univcotedazur.kitchen.components.KitchenFacadeTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kitchen-service/target/surefire-reports/fr.univcotedazur.kitchen.repositories.PreparedItemRepositoryTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/kitchen-service/target/surefire-reports/fr.univcotedazur.kitchen.repositories.PreparedItemRepositoryTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/menu-service/.env" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/menu-service/src/main/java/fr/univcotedazur/menus/controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/main/java/fr/univcotedazur/menus/controllers/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/menu-service/target/classes/fr/univcotedazur/menus/controllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/target/classes/fr/univcotedazur/menus/controllers/MenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/menu-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/menu-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/menu-service/target/menu-service-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/target/menu-service-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/menu-service/target/menu-service-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/target/menu-service-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2FdOHo19dWFcjb8COeB1uEcSgFA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4b0a6f7b-f314-41ca-8d4f-66a271acac4a" name="Changes" comment="" />
+      <created>1664818409824</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1664818409824</updated>
+      <workItem from="1664818413143" duration="1010000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

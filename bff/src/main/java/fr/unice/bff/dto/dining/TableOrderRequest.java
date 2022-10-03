@@ -1,11 +1,11 @@
-package fr.unice.bff.dto;
+package fr.unice.bff.dto.dining;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class TableOrder {
+public class TableOrderRequest {
     private int tableID;
     private int customerCount;
 }

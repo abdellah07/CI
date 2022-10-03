@@ -1,6 +1,6 @@
 package fr.unice.bff.controller;
 
-import fr.unice.bff.dto.Item;
+import fr.unice.bff.dto.menu.MenuItem;
 import fr.unice.bff.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,7 @@ public class MenuController {
     private MenuService menuService;
 
     @GetMapping
-    public ResponseEntity<List<Item>> getTheFullMenu() {
+    public ResponseEntity<List<MenuItem>> getTheFullMenu() {
         return ResponseEntity.ok(menuService.retrieveMenu());
     }
 

@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import fr.unice.bff.dto.Item;
+import fr.unice.bff.dto.menu.MenuItem;
 import fr.unice.bff.util.JsonMapper;
 import org.springframework.stereotype.Service;
 
@@ -15,11 +15,11 @@ public class MenuService {
 
     private static final String menuUrl = "http://localhost:3000/menus";
 
-    public List<Item> retrieveMenu(){
+    public List<MenuItem> retrieveMenu(){
         String json = call(menuUrl);
-        Item[] menuInfoList = new Item[0];
+        MenuItem[] menuInfoList = new MenuItem[0];
         try {
-            JsonMapper.objectMapper.readValue(json, Item[].class);
+            menuInfoList = JsonMapper.objectMapper.readValue(json, MenuItem[].class);
         } catch (JsonProcessingException e) {
             System.out.println("Problem in calling MENU API");
         }

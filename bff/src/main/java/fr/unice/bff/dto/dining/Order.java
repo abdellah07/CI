@@ -1,4 +1,4 @@
-package fr.unice.bff.dto;
+package fr.unice.bff.dto.dining;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,9 +8,6 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 public class Order {
-    private List<Item> itemInfoList;
-
-    private boolean ready;
-
-    private TableOrder tableOrder;
+    private String id;
+    private List<OrderItem> itemInfoList;
 }
