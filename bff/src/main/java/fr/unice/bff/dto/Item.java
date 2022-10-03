@@ -1,4 +1,4 @@
-package fr.unice.bff.controller.dto;
+package fr.unice.bff.dto;
 
 import fr.unice.bff.models.Category;
 import lombok.Data;
@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 import java.util.UUID;
 
 @Data
-public class MenuInfo {
+public class Item {
     private UUID id;
 
     @NotBlank

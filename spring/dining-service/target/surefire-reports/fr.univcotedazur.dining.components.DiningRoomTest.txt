@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: fr.univcotedazur.dining.components.DiningRoomTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 36.479 s - in fr.univcotedazur.dining.components.DiningRoomTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 29.515 s - in fr.univcotedazur.dining.components.DiningRoomTest

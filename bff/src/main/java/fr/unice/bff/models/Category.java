@@ -1,4 +1,4 @@
-package fr.univcotedazur.menus.models;
+package fr.unice.bff.models;
 
 public enum Category {
 
