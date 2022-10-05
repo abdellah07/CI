@@ -20,7 +20,7 @@ public class OrderService {
     private static final Logger logger = LoggerFactory.getLogger(OrderService.class);
     private static final String dinningURL = "http://localhost:3001";
     private static final String tableOrderSubdirectory = "/tableOrders";
-    private static final String prepareSubdirectory = "/tableOrders";
+    private static final String prepareSubdirectory = "/prepare";
 
     public HttpStatus makeAnOrder(List<OrderItem> itemList, Table table) {
         try {
@@ -29,14 +29,14 @@ public class OrderService {
             addItemsToOrder(order);
             prepareTheOrder(order);
         } catch (Exception e) {
-            logger.error("Cant Create ORDER.");
+            logger.error("Cant Create ORDER : " + e.getMessage());
             return HttpStatus.BAD_REQUEST;
         }
         return HttpStatus.CREATED;
     }
 
     private TableOrderResponse createAnOrder(int tableID) throws JsonProcessingException, OrderException {
-        TableOrderRequest tableOrderRequest = new TableOrderRequest(tableID, 0);
+        TableOrderRequest tableOrderRequest = new TableOrderRequest(tableID, 1);
         ResponseEntity<String> response = ExternalCall.send(dinningURL + tableOrderSubdirectory, tableOrderRequest);
         if (!response.getStatusCode().equals(HttpStatus.CREATED)) {
             throw new OrderException();
@@ -50,7 +50,7 @@ public class OrderService {
         for (OrderItem orderItem : order.getItemInfoList()) {
             ResponseEntity<String> response = ExternalCall.send(postItemUrl, orderItem);
             logger.debug("Sending " + orderItem + " to " + postItemUrl);
-            if (!response.getStatusCode().equals(HttpStatus.OK)) {
+            if (response.getStatusCode().isError()) {
                 logger.error("Cant Add Item with id " + orderItem.getId() + " named " + orderItem.getShortName() + ".");
             } else {
                 logger.info("Item with id " + orderItem.getId() + " named " + orderItem.getShortName() + " was added successfully.");
@@ -61,9 +61,9 @@ public class OrderService {
     private void prepareTheOrder(Order order) {
         String prepareItemsUrl = dinningURL + tableOrderSubdirectory + "/" + order.getId() + "/" + prepareSubdirectory;
         ResponseEntity<String> response = ExternalCall.send(prepareItemsUrl);
-        if (!response.getStatusCode().equals(HttpStatus.OK)) {
+        if (response.getStatusCode().isError()) {
             logger.error("Cant prepare Order dinning service is responding with error.");
-        }else{
+        } else {
             logger.info("order with id " + order.getId() + " is sent for preparation.");
         }
     }

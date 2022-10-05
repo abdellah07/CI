@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class TableOrderRequest {
-    private int tableID;
-    private int customerCount;
+    private int tableId;
+    private int customersCount;
 }

@@ -9,7 +9,7 @@ import java.util.UUID;
 
 @Data
 public class MenuItem {
-    private UUID id;
+    private String id;
 
     @NotBlank
     private String shortName;
