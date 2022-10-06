@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {TablesComponent} from "./tables/tables.component";
+import { TableListComponent } from './table-list/table-list.component';
 
 const routes: Routes = [
   {
-    path: 'tables',
-    component: TablesComponent,
+    path: 'table-list',
+    component: TableListComponent,
   },
   {
     path: '',
-    redirectTo: 'tables',
+    redirectTo: 'table-list',
     pathMatch: 'full',
   }
 ];
