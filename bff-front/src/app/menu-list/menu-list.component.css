@@ -1,0 +1,28 @@
+#global{
+  position: relative;
+}
+
+.row {
+  margin: 0px;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
+}
+
+.c1{
+  padding: 5px 5px 10px 0;
+  position: relative;
+  z-index: 1000;
+
+}
+
+
+
+svg{
+  background-color: red;
+}

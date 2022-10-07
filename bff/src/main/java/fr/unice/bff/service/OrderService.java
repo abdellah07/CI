@@ -22,17 +22,18 @@ public class OrderService {
     private static final String tableOrderSubdirectory = "/tableOrders";
     private static final String prepareSubdirectory = "/prepare";
 
-    public HttpStatus makeAnOrder(List<OrderItem> itemList, Table table) {
+
+    public ResponseEntity<String> makeAnOrder(List<OrderItem> itemList, Table table) {
         try {
             TableOrderResponse tableOrderResponse = createAnOrder(table.getId());
             Order order = new Order(tableOrderResponse.getId(), itemList);
             addItemsToOrder(order);
-            prepareTheOrder(order);
+            ResponseEntity<String> response = prepareTheOrder(order);
+            return response;
         } catch (Exception e) {
             logger.error("Cant Create ORDER : " + e.getMessage());
-            return HttpStatus.BAD_REQUEST;
+            return ResponseEntity.badRequest().build();
         }
-        return HttpStatus.CREATED;
     }
 
     private TableOrderResponse createAnOrder(int tableID) throws JsonProcessingException, OrderException {
@@ -58,7 +59,7 @@ public class OrderService {
         }
     }
 
-    private void prepareTheOrder(Order order) {
+    private ResponseEntity<String> prepareTheOrder(Order order) {
         String prepareItemsUrl = dinningURL + tableOrderSubdirectory + "/" + order.getId() + "/" + prepareSubdirectory;
         ResponseEntity<String> response = ExternalCall.send(prepareItemsUrl);
         if (response.getStatusCode().isError()) {
@@ -66,5 +67,6 @@ public class OrderService {
         } else {
             logger.info("order with id " + order.getId() + " is sent for preparation.");
         }
+        return response;
     }
 }

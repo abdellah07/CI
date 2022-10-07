@@ -2,7 +2,7 @@ import {Colors, Table} from "../models/table.model";
 
 
 export const TABLES_LIST: Table[] = [
-  {number:-1,taken:false,tableOrderId:'null', color:Colors.BLACK},
+  {number:1,taken:false,tableOrderId:'null', color:Colors.BLACK},
   {number:-2,taken:false,tableOrderId:'null', color:Colors.BLACK},
   {number:-3,taken:false,tableOrderId:'null', color:Colors.BLACK},
   {number:-4,taken:false,tableOrderId:'null', color:Colors.BLACK},

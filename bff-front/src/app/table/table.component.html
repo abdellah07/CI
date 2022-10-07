@@ -1,4 +1,4 @@
-<div class="card" [ngStyle]="{'background-color': color}">
+<div class="card" [ngStyle]="{'background-color': color}" (click)="onClick()" [routerLink]="'/menu-list/'+table.number">
   <div class="table-text">
     {{tableText}}
   </div>

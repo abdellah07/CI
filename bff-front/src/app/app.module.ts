@@ -7,12 +7,18 @@ import { TableComponent } from './table/table.component';
 import {HttpClientModule} from "@angular/common/http";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TableListComponent } from './table-list/table-list.component';
+import { MenuComponent } from './menu/menu.component';
+import { MenuListComponent } from './menu-list/menu-list.component';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
-    TableListComponent
+    TableListComponent,
+    MenuComponent,
+    MenuListComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

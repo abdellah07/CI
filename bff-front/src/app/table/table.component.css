@@ -5,6 +5,7 @@
   padding: 40px 40px;
   margin: 10px;
   border-radius: 25px;
+  cursor: pointer;
 }
 
 .table-text {
@@ -16,3 +17,4 @@
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
+

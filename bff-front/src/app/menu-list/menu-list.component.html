@@ -1,0 +1,15 @@
+<div class="container c1" (click)="toggle()">
+  <img src="favicon.ico">
+</div>
+<div id="global">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2 col-sm-4 col-xs-6" *ngFor="let menu of menuList;let i =index">
+        <app-menu [menu]="menu" [qte]="0"></app-menu>
+      </div>
+    </div>
+  </div>
+  <app-order></app-order>
+</div>
+

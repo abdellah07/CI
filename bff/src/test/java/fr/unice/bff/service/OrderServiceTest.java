@@ -29,8 +29,8 @@ public class OrderServiceTest {
         MenuItem menuItem1 =  menuService.retrieveMenu().get(0);
         MenuItem menuItem2 =  menuService.retrieveMenu().get(1);
         List<OrderItem> orderItemList = new ArrayList<>();
-        orderItemList.add(new OrderItem(menuItem1.getId(),menuItem1.getShortName(),1));
+        orderItemList.add(new OrderItem(menuItem1.getId(),menuItem1.getShortName(),2));
         orderItemList.add(new OrderItem(menuItem2.getId(),menuItem2.getShortName(),1));
-        assertTrue(!orderService.makeAnOrder(orderItemList,new Table(1)).isError());
+        orderService.makeAnOrder(orderItemList,new Table(1));
     }
 }
