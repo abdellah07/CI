@@ -1,8 +1,10 @@
 package fr.unice.bff.controller;
 
 import fr.unice.bff.dto.dining.OrderItem;
-import fr.unice.bff.dto.dining.Table;
+import fr.unice.bff.dto.tables.Table;
+import fr.unice.bff.exception.TableNotFoundException;
 import fr.unice.bff.service.OrderService;
+import fr.unice.bff.service.TableService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,14 +25,24 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @PostMapping(BASE_URI+"/{tableId}")
-    public ResponseEntity<String> createOrder(@RequestBody @Valid List<OrderItem> itemInfoList, @PathVariable("tableId") int tableId) {
+    @Autowired
+    private TableService tableService;
+
+    @PostMapping(BASE_URI + "/{tableId}")
+    public ResponseEntity<String> createOrder(@RequestBody @Valid List<OrderItem> itemInfoList, @PathVariable("tableId") int tableId) throws TableNotFoundException {
         logger.info("calling ordering service ");
-        return orderService.makeAnOrder(itemInfoList,new Table(tableId));
+        Table table;
+        try {
+            table = tableService.getTableInfo(tableId);
+        } catch (TableNotFoundException tableNotFoundException) {
+            logger.error(tableNotFoundException.getMessage());
+            throw new TableNotFoundException(tableId);
+        }
+        return orderService.makeAnOrder(itemInfoList, table);
     }
 
-    @PostMapping(BASE_URI+"/{orderId}/ready")
-    public void servingOrder(){
+    @PostMapping(BASE_URI + "/{orderId}/ready")
+    public void servingOrder() {
 
     }
 
