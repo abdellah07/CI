@@ -1,6 +1,7 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges, ChangeDetectionStrategy} from '@angular/core';
-import {Colors, Table} from "../../models/table.model";
+import {ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {getColor, Table, TableStatus} from "../../models/table.model";
 import {OrderService} from "../../services/order.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-table',
@@ -11,13 +12,13 @@ import {OrderService} from "../../services/order.service";
 export class TableComponent implements OnInit, OnChanges {
 
   @Input()
-  table: Table = {number: -1, taken: false, tableOrderId: 'undefined', color: Colors.BLACK};
+  table: Table = {number: -1, taken: false, tableOrderId: 'undefined', status: TableStatus.noInfo};
 
   color: String = "gray";
 
   tableText: String = "";
 
-  constructor(private orderService: OrderService) {
+  constructor(private orderService: OrderService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -26,16 +27,25 @@ export class TableComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     let table: Table = changes['table'].currentValue;
     this.tableText = "Table #" + table.number;
-    this.onColorChange(table.color)
+    this.onStatusChange(table.status)
   }
 
-  onColorChange(color: Colors): void {
-    this.color = color.valueOf();
+  onStatusChange(status: TableStatus): void {
+    this.color = getColor(status).valueOf();
   }
 
   onClick() {
     console.log("test")
     this.orderService.tableId = this.table.number;
+    switch (this.table.status){
+      case TableStatus.payed:
+        this.table.status = TableStatus.available;
+        this.onStatusChange(this.table.status);
+        break;
+      default:
+        this.router.navigate(["/menu-list/"+this.table.number]);
+        break;
+    }
   }
 
 
