@@ -6,6 +6,7 @@ import fr.unice.bff.exception.TableNotFoundException;
 import fr.unice.bff.util.JsonMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import static fr.unice.bff.util.ExternalCall.call;
@@ -14,10 +15,11 @@ import static fr.unice.bff.util.ExternalCall.call;
 public class TableService {
 
     private Logger logger = LoggerFactory.getLogger(TableService.class);
-    private static final String tableInfoURL =  "http://localhost:3001/tables/";
+    private static String tableBaseUrl = BaseUrl.getDinning();
+    private static final String tableInfoURL = tableBaseUrl + "/tables/";
 
     public boolean tableIsTaken(int tableId) throws TableNotFoundException {
-        String json = call(tableInfoURL+tableId);
+        String json = call(tableInfoURL + tableId);
         Table tableInfoResponse;
         try {
             tableInfoResponse = JsonMapper.objectMapper.readValue(json, Table.class);
@@ -29,7 +31,7 @@ public class TableService {
     }
 
     public Table getTableInfo(int tableId) throws TableNotFoundException {
-        String json = call(tableInfoURL+tableId);
+        String json = call(tableInfoURL + tableId);
         Table tableInfoResponse;
         try {
             tableInfoResponse = JsonMapper.objectMapper.readValue(json, Table.class);

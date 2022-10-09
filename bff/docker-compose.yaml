@@ -4,5 +4,11 @@ services:
 
   backend-for-frontend:
     image: ci/bff
+    networks:
+      - restaurant_default
     ports:
       - 8080:8080
+
+networks:
+  restaurant_default:
+    external: true

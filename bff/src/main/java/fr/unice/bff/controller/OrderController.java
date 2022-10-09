@@ -41,8 +41,8 @@ public class OrderController {
         return orderService.makeAnOrder(itemInfoList, table);
     }
 
-    @PostMapping(BASE_URI + "/{orderId}/ready")
-    public void servingOrder() {
+    @PostMapping(BASE_URI + "/{tableId}/status")
+    public void orderStatus() {
 
     }
 
