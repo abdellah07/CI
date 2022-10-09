@@ -4,6 +4,11 @@ services:
 
   backend-for-frontend:
     image: ci/bff
-    build: src/main/docker
+    networks:
+      - restaurant_default
     ports:
       - 8080:8080
+
+networks:
+  restaurant_default:
+    external: true

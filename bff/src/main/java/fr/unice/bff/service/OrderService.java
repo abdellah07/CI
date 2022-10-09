@@ -17,8 +17,9 @@ import java.util.List;
 
 @Service
 public class OrderService {
+
+    private static String dinningURL = BaseUrl.getDinning();
     private static final Logger logger = LoggerFactory.getLogger(OrderService.class);
-    private static final String dinningURL = "http://localhost:3001";
     private static final String tableOrderSubdirectory = "/tableOrders";
     private static final String prepareSubdirectory = "/prepare";
 
@@ -77,4 +78,6 @@ public class OrderService {
         }
         return response;
     }
+
+
 }
