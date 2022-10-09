@@ -1,0 +1,33 @@
+.item-container {
+  background-color: dodgerblue;
+  border-radius: 5px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  display: inline-block;
+  padding: 25px 0px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  width: 100%;
+  transition-delay: 0s;
+  transition-duration: 0.5s;
+  transition-property: all;
+  transition-timing-function: ease;
+  position: relative;
+}
+
+.item-container:hover {
+  background-color: green;
+}
+
+span{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 10px;
+}
+
+

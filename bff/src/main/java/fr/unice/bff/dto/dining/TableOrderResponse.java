@@ -12,5 +12,4 @@ import java.time.LocalDateTime;
 public class TableOrderResponse {
     private String id;
     private LocalDateTime opened;
-    private LocalDateTime billed;
 }

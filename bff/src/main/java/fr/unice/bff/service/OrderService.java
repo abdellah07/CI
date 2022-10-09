@@ -2,6 +2,7 @@ package fr.unice.bff.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import fr.unice.bff.dto.dining.*;
+import fr.unice.bff.dto.tables.Table;
 import fr.unice.bff.exception.OrderException;
 import fr.unice.bff.util.ExternalCall;
 import fr.unice.bff.util.JsonMapper;
@@ -17,23 +18,31 @@ import java.util.List;
 @Service
 public class OrderService {
 
+    private static String dinningURL = BaseUrl.getDinning();
     private static final Logger logger = LoggerFactory.getLogger(OrderService.class);
-    private static final String dinningURL = "http://localhost:3001";
     private static final String tableOrderSubdirectory = "/tableOrders";
     private static final String prepareSubdirectory = "/prepare";
 
-    public HttpStatus makeAnOrder(List<OrderItem> itemList, Table table) {
+
+    public ResponseEntity<String> makeAnOrder(List<OrderItem> itemList, Table table) {
         try {
-            TableOrderResponse tableOrderResponse = createAnOrder(table.getId());
-            Order order = new Order(tableOrderResponse.getId(), itemList);
+            Order order;
+            if (!table.isTaken()) {
+                TableOrderResponse tableOrderResponse = createAnOrder(table.getNumber());
+                order = new Order(tableOrderResponse.getId(), itemList);
+            } else {
+                logger.info("Table " + table.getNumber() + "is taken adding item directly to command id " + table.getTableOrderId());
+                order = new Order(table.getTableOrderId(), itemList);
+            }
             addItemsToOrder(order);
-            prepareTheOrder(order);
+            ResponseEntity<String> response = prepareTheOrder(order);
+            return response;
         } catch (Exception e) {
             logger.error("Cant Create ORDER : " + e.getMessage());
-            return HttpStatus.BAD_REQUEST;
+            return ResponseEntity.badRequest().build();
         }
-        return HttpStatus.CREATED;
     }
+
 
     private TableOrderResponse createAnOrder(int tableID) throws JsonProcessingException, OrderException {
         TableOrderRequest tableOrderRequest = new TableOrderRequest(tableID, 1);
@@ -45,20 +54,21 @@ public class OrderService {
         return tableOrderResponse;
     }
 
+
     private void addItemsToOrder(Order order) {
         String postItemUrl = dinningURL + tableOrderSubdirectory + "/" + order.getId();
         for (OrderItem orderItem : order.getItemInfoList()) {
             ResponseEntity<String> response = ExternalCall.send(postItemUrl, orderItem);
             logger.debug("Sending " + orderItem + " to " + postItemUrl);
             if (response.getStatusCode().isError()) {
-                logger.error("Cant Add Item with id " + orderItem.getId() + " named " + orderItem.getShortName() + ".");
+                logger.warn("Cant Add Item with id " + orderItem.getId() + " named " + orderItem.getShortName() + ".");
             } else {
                 logger.info("Item with id " + orderItem.getId() + " named " + orderItem.getShortName() + " was added successfully.");
             }
         }
     }
 
-    private void prepareTheOrder(Order order) {
+    private ResponseEntity<String> prepareTheOrder(Order order) {
         String prepareItemsUrl = dinningURL + tableOrderSubdirectory + "/" + order.getId() + "/" + prepareSubdirectory;
         ResponseEntity<String> response = ExternalCall.send(prepareItemsUrl);
         if (response.getStatusCode().isError()) {
@@ -66,5 +76,8 @@ public class OrderService {
         } else {
             logger.info("order with id " + order.getId() + " is sent for preparation.");
         }
+        return response;
     }
+
+
 }

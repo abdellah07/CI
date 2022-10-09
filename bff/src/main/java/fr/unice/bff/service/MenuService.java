@@ -6,6 +6,7 @@ import java.util.List;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import fr.unice.bff.dto.menu.MenuItem;
 import fr.unice.bff.util.JsonMapper;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import static fr.unice.bff.util.ExternalCall.call;
@@ -13,9 +14,10 @@ import static fr.unice.bff.util.ExternalCall.call;
 @Service
 public class MenuService {
 
-    private static final String menuUrl = "http://localhost:3000/menus";
+    private static String menuBaseUrt = BaseUrl.getMenu();
+    private static final String menuUrl = menuBaseUrt + "/menus";
 
-    public List<MenuItem> retrieveMenu(){
+    public List<MenuItem> retrieveMenu() {
         String json = call(menuUrl);
         MenuItem[] menuInfoList = new MenuItem[0];
         try {

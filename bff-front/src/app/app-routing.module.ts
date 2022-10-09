@@ -1,15 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {TablesComponent} from "./tables/tables.component";
+import { TableListComponent } from './table-list/table-list.component';
+import {MenuListComponent} from "./menu-list/menu-list.component";
+import {OrderInfoComponent} from "./order-info/order-info.component";
 
 const routes: Routes = [
   {
-    path: 'tables',
-    component: TablesComponent,
+    path: 'menu-list/:tableId',
+    component: MenuListComponent,
+  },
+  {
+    path: 'table-list',
+    component: TableListComponent,
+  },
+  {
+    path: 'order-info/:tableId',
+    component: OrderInfoComponent,
   },
   {
     path: '',
-    redirectTo: 'tables',
+    redirectTo: 'table-list',
     pathMatch: 'full',
   }
 ];
