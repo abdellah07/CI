@@ -3,10 +3,14 @@ package fr.unice.bff.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import fr.unice.bff.dto.tables.Table;
 import fr.unice.bff.exception.TableNotFoundException;
+import fr.unice.bff.util.ExternalCall;
 import fr.unice.bff.util.JsonMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.http.ResponseEntity;
+import java.util.Arrays;
+import java.util.List;
 
 import static fr.unice.bff.util.ExternalCall.call;
 
@@ -38,5 +42,22 @@ public class TableService {
             logger.error("Problem in getting table info");
             throw new TableNotFoundException(tableId);
         }
+    }
+
+    private List<Table> getTables() throws TableNotFoundException {
+        String json = call(tableInfoURL);
+        try {
+            List<Table> tablesList = Arrays.asList(JsonMapper.objectMapper.readValue(json, Table[].class));
+            return tablesList;
+        } catch (JsonProcessingException e) {
+            logger.error("Problem in getting table info");
+            int i = 0;
+            throw new TableNotFoundException(i);
+        }
+    }
+
+    public ResponseEntity<String> getAllTable(){
+        ResponseEntity<String> response = ExternalCall.send(tableInfoURL, Table[].class);
+        return response;
     }
 }
