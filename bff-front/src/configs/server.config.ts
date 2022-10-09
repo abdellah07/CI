@@ -13,3 +13,4 @@ export const headerOptions = {
 export const bffURL = 'http://localhost:8080';
 export const  orderUrl = bffURL + '/order';
 export const  menuUrl = bffURL + '/menu';
+export const  orderinfoUrl = bffURL + '/preparations';
