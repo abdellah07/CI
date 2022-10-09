@@ -4,5 +4,6 @@ services:
 
   backend-for-frontend:
     image: ci/bff
+    build: src/main/docker
     ports:
       - 8080:8080
