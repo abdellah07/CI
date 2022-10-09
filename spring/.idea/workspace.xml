@@ -5,27 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b0a6f7b-f314-41ca-8d4f-66a271acac4a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../bff/run.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/controller/PreparationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/dto/preparation/PreparationInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/models/preparation/Preparation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/models/preparation/PreparationItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/models/preparation/PreparationResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/models/preparation/PreparationState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/service/BaseUrl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/service/PreparationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bff-front/src/app/table-list/table-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bff-front/src/app/table-list/table-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bff/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bff/src/main/docker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/src/main/docker/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bff/run.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/run.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/BffApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/BffApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/controller/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/service/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/service/MenuService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/service/ServingService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/service/TableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/service/TableService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/controller/PreparationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/controller/PreparationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/models/preparation/PreparationItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/models/preparation/PreparationItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/service/PreparationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/service/PreparationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/util/ExternalCall.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/src/main/java/fr/unice/bff/util/ExternalCall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bff/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../bff/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

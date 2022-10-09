@@ -8,6 +8,8 @@ import fr.unice.bff.models.preparation.PreparationResponse;
 import fr.unice.bff.models.preparation.PreparationState;
 import fr.unice.bff.util.ExternalCall;
 import fr.unice.bff.util.JsonMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,8 @@ import java.util.List;
 
 @Service
 public class PreparationService {
-    @Value("${restaurant.kitchen}")
+
+    private Logger logger = LoggerFactory.getLogger(PreparationService.class);
     private static String preparationURL = BaseUrl.getKitchen();
     private static final String preparationsSubdirectory = "/preparations";
     /**
@@ -32,15 +35,21 @@ public class PreparationService {
         String readyJson = ExternalCall.call(readyUrl);
         String unPreparedJson = ExternalCall.call(unPreparedUrl);
 
-        PreparationResponse readyItems = JsonMapper.objectMapper.readValue(readyJson, PreparationResponse.class);
-        PreparationResponse unPreparedItems = JsonMapper.objectMapper.readValue(readyJson, PreparationResponse.class);
-
+        Preparation[] readyItems = JsonMapper.objectMapper.readValue(readyJson, Preparation[].class);
+        Preparation[] unPreparedItems = JsonMapper.objectMapper.readValue(unPreparedJson,  Preparation[].class);
         PreparationInfo preparationInfo = new PreparationInfo();
 
-        extractServedItems(unPreparedItems, preparationInfo);
-        extractReadyItems(unPreparedItems, preparationInfo);
-        extractUnReadyItems(unPreparedItems, preparationInfo);
+        PreparationResponse preparationResponseReady = new PreparationResponse();
+        preparationResponseReady.setPreparationList(List.of(readyItems));
 
+        PreparationResponse preparationResponseUnready = new PreparationResponse();
+        preparationResponseUnready.setPreparationList(List.of(unPreparedItems));
+
+        extractServedItems(preparationResponseReady, preparationInfo);
+        extractReadyItems(preparationResponseReady, preparationInfo);
+        extractUnReadyItems(preparationResponseUnready, preparationInfo);
+
+        logger.info("PREPARATION INFORMATION'S ARE READY");
         return preparationInfo;
     }
 

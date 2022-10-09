@@ -15,7 +15,9 @@ public class ExternalCall {
 
     public static String call(String url) {
         logger.info("calling : " + url);
-        return restTemplate.getForObject(url, String.class);
+        String response = restTemplate.getForObject(url, String.class);
+        logger.info("response : " + response);
+        return response;
     }
 
     public static <T> ResponseEntity<String> send(String url, T object) {

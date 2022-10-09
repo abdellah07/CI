@@ -12,7 +12,6 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class MenuListComponent implements OnInit {
 
-  @Input()
   tableId: number = 0;
 
   menuList: Menu[] = []

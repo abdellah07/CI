@@ -10,6 +10,7 @@ import { TableListComponent } from './table-list/table-list.component';
 import { MenuComponent } from './menu/menu.component';
 import { MenuListComponent } from './menu-list/menu-list.component';
 import { OrderComponent } from './order/order.component';
+import { OrderInfoComponent } from './order-info/order-info.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { OrderComponent } from './order/order.component';
     TableListComponent,
     MenuComponent,
     MenuListComponent,
-    OrderComponent
+    OrderComponent,
+    OrderInfoComponent
   ],
   imports: [
     BrowserModule,
