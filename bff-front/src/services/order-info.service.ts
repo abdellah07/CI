@@ -2,14 +2,13 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {BehaviorSubject} from 'rxjs';
 import {headerOptions, orderinfoUrl} from '../configs/server.config';
-import {OrderService} from "./order.service";
 import {OrderInfo} from "../models/orderinfo.model";
 import {orderInfoList} from "../mocks/orderinfo.mock";
 
 @Injectable({
   providedIn: 'root',
 })
-export class MenuService {
+export class OrderInfoService {
 
   private orderInfos: OrderInfo = orderInfoList;
 
