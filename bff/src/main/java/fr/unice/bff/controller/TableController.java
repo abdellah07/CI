@@ -56,6 +56,9 @@ public class TableController {
         } catch (JsonProcessingException e) {
             logger.error(e.getMessage());
             return (ResponseEntity<TableInfo>) ResponseEntity.badRequest();
+        } catch (TableNotFoundException e) {
+            logger.error(e.getMessage());
+            return (ResponseEntity<TableInfo>) ResponseEntity.badRequest();
         }
 
 

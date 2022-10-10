@@ -4,10 +4,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import fr.unice.bff.dto.dining.*;
 import fr.unice.bff.dto.tables.Table;
 import fr.unice.bff.exception.OrderException;
+import fr.unice.bff.exception.TableNotFoundException;
+import fr.unice.bff.exception.TableWithoutOrderId;
+import fr.unice.bff.models.preparation.PreparationResponse;
 import fr.unice.bff.util.ExternalCall;
 import fr.unice.bff.util.JsonMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -22,6 +26,9 @@ public class OrderService {
     private static final Logger logger = LoggerFactory.getLogger(OrderService.class);
     private static final String tableOrderSubdirectory = "/tableOrders";
     private static final String prepareSubdirectory = "/prepare";
+
+    @Autowired
+    private TableService tableService;
 
 
     public ResponseEntity<String> makeAnOrder(List<OrderItem> itemList, Table table) {
@@ -78,5 +85,19 @@ public class OrderService {
         }
         return response;
     }
-    
+
+    public PreparationResponse getAllPreparations(int tableId) throws TableNotFoundException, JsonProcessingException, TableWithoutOrderId {
+        String orderTable = tableService.getTableInfo(tableId).getTableOrderId();
+        if (orderTable == null) {
+            logger.warn("Table id is null");
+            throw new TableWithoutOrderId(tableId);
+        }
+        String url = dinningURL + tableOrderSubdirectory + "/" + orderTable;
+
+        String preperationsJson = ExternalCall.call(url);
+
+        PreparationResponse preparationResponse = JsonMapper.objectMapper.readValue(preperationsJson, PreparationResponse.class);
+        return preparationResponse;
+    }
+
 }
