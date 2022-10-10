@@ -42,7 +42,10 @@ public class TableController {
             TableInfo tableInfos = new TableInfo();
             for (int i = 0; i < tables.size(); i++) {
                 PreparationInfo preparation = preparationService.getPreparationInfo(tables.get(i).getNumber());
-                if (preparation.getReady().size() == 0 && preparation.getUnready().size() == 0 && preparation.getServed().size() == 0) {
+                if (tables.get(i).getTableOrderId() == null){
+                    tableInfos.addAvailableTable(tables.get(i));
+                }
+                else if (preparation.getReady().size() == 0 && preparation.getUnready().size() == 0 && preparation.getServed().size() == 0) {
                     tableInfos.addAvailableTable(tables.get(i));
                 } else if (preparation.getReady().size() > 0) {
                     tableInfos.addOrderReadyTable(tables.get(i));
