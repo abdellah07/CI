@@ -6,6 +6,7 @@ import fr.unice.bff.dto.tables.Table;
 import fr.unice.bff.exception.TableNotFoundException;
 import fr.unice.bff.util.ExternalCall;
 import fr.unice.bff.util.JsonMapper;
+import fr.unice.bff.service.PreparationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
