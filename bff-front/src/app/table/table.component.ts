@@ -37,13 +37,16 @@ export class TableComponent implements OnInit, OnChanges {
   onClick() {
     console.log("test")
     this.orderService.tableId = this.table.number;
-    switch (this.table.status){
+    switch (this.table.status) {
       case TableStatus.payed:
         this.table.status = TableStatus.available;
         this.onStatusChange(this.table.status);
         break;
+      case TableStatus.available:
+        this.router.navigate(["/menu-list/" + this.table.number]);
+        break;
       default:
-        this.router.navigate(["/menu-list/"+this.table.number]);
+        this.router.navigate(["/order-info/" + this.table.number]);
         break;
     }
   }

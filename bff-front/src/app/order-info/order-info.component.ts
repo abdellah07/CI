@@ -3,6 +3,7 @@ import {OrderInfo} from "../../models/orderinfo.model";
 import {OrderInfoService} from "../../services/order-info.service";
 import {orderInfoList} from "../../mocks/orderinfo.mock";
 import {ActivatedRoute, Router} from "@angular/router";
+import {OrderService} from "../../services/order.service";
 
 @Component({
   selector: 'app-order-info',
@@ -14,7 +15,7 @@ export class OrderInfoComponent implements OnInit {
   orderInfo: OrderInfo = orderInfoList;
   tableId: number = 0;
 
-  constructor(private orderInfoService: OrderInfoService, private route: ActivatedRoute, private router: Router) {
+  constructor(private orderService: OrderService, private orderInfoService: OrderInfoService, private route: ActivatedRoute, private router: Router) {
     this.orderInfoService.orderInfo$.subscribe((orderInfo: OrderInfo) => {
       this.orderInfo = orderInfo;
     });
@@ -29,7 +30,12 @@ export class OrderInfoComponent implements OnInit {
     this.orderInfoService.retrieveOrderInfoList(this.tableId);
   }
 
-  onclick(){
-    this.router.navigate(["/menu-list/"+this.tableId]);
+  onAddClick() {
+    this.router.navigate(["/menu-list/" + this.tableId]);
+  }
+
+  onServeClick() {
+    this.orderService.serve(this.tableId);
+    this.router.navigate([""]);
   }
 }

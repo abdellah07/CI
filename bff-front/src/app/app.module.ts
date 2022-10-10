@@ -11,6 +11,7 @@ import { MenuComponent } from './menu/menu.component';
 import { MenuListComponent } from './menu-list/menu-list.component';
 import { OrderComponent } from './order/order.component';
 import { OrderInfoComponent } from './order-info/order-info.component';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { OrderInfoComponent } from './order-info/order-info.component';
     MenuComponent,
     MenuListComponent,
     OrderComponent,
-    OrderInfoComponent
+    OrderInfoComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
