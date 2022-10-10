@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {BehaviorSubject, catchError, Observable, throwError} from 'rxjs';
-import { headerOptions, orderUrl} from '../configs/server.config';
+import {headerOptions, orderUrl, prepareUrl} from '../configs/server.config';
 
 import {Item, Order, Preparation} from "../models/order.model";
 import {MENU_LIST} from "../mocks/menu-list.mock";
@@ -17,9 +17,9 @@ export class OrderService {
   constructor(private http: HttpClient) {
   }
 
-  tableId :number = -1
+  tableId: number = -1
 
-  itemList : Item[] = [];
+  itemList: Item[] = [];
 
 
   public itemList$: BehaviorSubject<Item[]> = new BehaviorSubject(this.itemList);
@@ -28,8 +28,8 @@ export class OrderService {
     this.tableId = tableId;
   }
 
-  setTable(id : number){
-    console.log("table id is changed to "+id)
+  setTable(id: number) {
+    console.log("table id is changed to " + id)
     this.tableId = id;
     this.itemList = [];
     this.itemList$.next(this.itemList);
@@ -52,7 +52,7 @@ export class OrderService {
     i = this.itemList.find(it => it.id == id);
     if (i != undefined) {
       i.howMany--;
-      if(i.howMany <=0){
+      if (i.howMany <= 0) {
         this.itemList = this.itemList.filter(value => value.id !== id);
       }
     }
@@ -73,20 +73,22 @@ export class OrderService {
     return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 
-  getItemById(id:String):Item{
-    let i =  this.itemList.find(it => it.id == id);
+  getItemById(id: String): Item {
+    let i = this.itemList.find(it => it.id == id);
     if (i != undefined) {
       return i
     }
-    return {id: "null",
+    return {
+      id: "null",
       shortName: "null",
-      howMany: 0};
+      howMany: 0
+    };
   }
 
   sendOrderToBff() {
     this.showOrder();
-    let url = orderUrl+"/"+this.tableId;
-    this.http.post<Item[]>(url,this.itemList,{headers: new HttpHeaders(headerOptions)}).subscribe((item) => {
+    let url = orderUrl + "/" + this.tableId;
+    this.http.post<Item[]>(url, this.itemList, {headers: new HttpHeaders(headerOptions)}).subscribe((item) => {
       this.itemList = item;
       this.itemList$.next(this.itemList);
     });
@@ -94,12 +96,18 @@ export class OrderService {
   }
 
   getOrder() {
-    let order : Order = {tableId:this.tableId,items: this.itemList}
+    let order: Order = {tableId: this.tableId, items: this.itemList}
     return this.itemList;
   }
 
   showOrder() {
     console.log(this.itemList);
+  }
+
+  serve(tableId: number) {
+    let url = prepareUrl + "/" + tableId;
+    console.log(url);
+    this.http.post(url, {}, {headers: new HttpHeaders(headerOptions)}).subscribe();
   }
 
 
