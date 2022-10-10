@@ -2,6 +2,9 @@ package fr.unice.bff.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import fr.unice.bff.dto.preparation.PreparationInfo;
+import fr.unice.bff.dto.tables.Table;
+import fr.unice.bff.dto.tables.TableInfo;
+import fr.unice.bff.exception.TableNotFoundException;
 import fr.unice.bff.models.preparation.Preparation;
 import fr.unice.bff.models.preparation.PreparationItem;
 import fr.unice.bff.models.preparation.PreparationResponse;
@@ -10,6 +13,7 @@ import fr.unice.bff.util.ExternalCall;
 import fr.unice.bff.util.JsonMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +40,7 @@ public class PreparationService {
         String unPreparedJson = ExternalCall.call(unPreparedUrl);
 
         Preparation[] readyItems = JsonMapper.objectMapper.readValue(readyJson, Preparation[].class);
-        Preparation[] unPreparedItems = JsonMapper.objectMapper.readValue(unPreparedJson,  Preparation[].class);
+        Preparation[] unPreparedItems = JsonMapper.objectMapper.readValue(unPreparedJson, Preparation[].class);
         PreparationInfo preparationInfo = new PreparationInfo();
 
         PreparationResponse preparationResponseReady = new PreparationResponse();
@@ -81,6 +85,19 @@ public class PreparationService {
         List<Preparation> unready = unPreparedItems.getPreparationList();
         for (Preparation preparation : unready) {
             preparationInfo.addUnreadyItems(preparation.getPreparedItems());
+        }
+    }
+
+    public void serve(int tableId) {
+        String baseUrl = preparationURL + preparationsSubdirectory;
+        try {
+            PreparationInfo preparationInfo = getPreparationInfo(tableId);
+            for (PreparationItem preparationItem : preparationInfo.getReady()) {
+                String prepareURL = baseUrl + "/" + preparationItem.getId() + "/takenToTable";
+                ExternalCall.send(prepareURL);
+            }
+        } catch (JsonProcessingException e) {
+            logger.error("Problem in serving Order");
         }
     }
 

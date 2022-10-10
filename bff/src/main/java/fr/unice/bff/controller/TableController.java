@@ -35,23 +35,20 @@ public class TableController {
     private TableService tableService;
 
     @GetMapping(BASE_URI)
-    public ResponseEntity<TableInfo>  getTable() {
+    public ResponseEntity<TableInfo> getTable() {
         try {
             logger.info("Get All table ");
             List<Table> tables = tableService.getTables();
             TableInfo tableInfos = new TableInfo();
-            for(int i = 0; i<tables.size(); i++){
+            for (int i = 0; i < tables.size(); i++) {
                 PreparationInfo preparation = preparationService.getPreparationInfo(tables.get(i).getNumber());
-                if(preparation.ready.size() == 0 && preparation.unready.size() == 0 && preparation.served.size() == 0){
+                if (preparation.getReady().size() == 0 && preparation.getUnready().size() == 0 && preparation.getServed().size() == 0) {
                     tableInfos.addAvailableTable(tables.get(i));
-                }
-                else if(preparation.ready.size() > 0 ){
+                } else if (preparation.getReady().size() > 0) {
                     tableInfos.addOrderReadyTable(tables.get(i));
-                }
-                else if(preparation.unready.size() > 0){
+                } else if (preparation.getUnready().size() > 0) {
                     tableInfos.addInPreparationTable(tables.get(i));
-                }
-                else if(preparation.served.size() > 0){
+                } else if (preparation.getServed().size() > 0) {
                     tableInfos.addWaitingForPaymentTable(tables.get(i));
                 }
             }

@@ -10,9 +10,9 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 public class PreparationInfo {
-    public List<PreparationItem> ready;
-    public List<PreparationItem> served;
-    public List<PreparationItem> unready;
+    private List<PreparationItem> ready;
+    private List<PreparationItem> served;
+    private List<PreparationItem> unready;
 
     public PreparationInfo() {
         ready = new ArrayList<>();
@@ -25,10 +25,10 @@ public class PreparationInfo {
     }
 
     public void addServedItems(List<PreparationItem> served) {
-        this.ready.addAll(served);
+        this.served.addAll(served);
     }
 
     public void addUnreadyItems(List<PreparationItem> unready) {
-        this.ready.addAll(unready);
+        this.unready.addAll(unready);
     }
 }

@@ -29,6 +29,11 @@ public class PreparationController {
             logger.error(e.getMessage());
             return (ResponseEntity<PreparationInfo>) ResponseEntity.badRequest();
         }
+    }
 
+    @GetMapping(BASE_URI + "/serve")
+    public ResponseEntity<PreparationInfo> serveItems(@PathVariable("tableId") int tableId) {
+        preparationService.serve(tableId);
+        return null;
     }
 }

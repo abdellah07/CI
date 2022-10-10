@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class BffApplication {
 	public static void main(String[] args) {
-		//BaseUrl.setLocalTrue();
+		BaseUrl.setLocalTrue();
 		SpringApplication.run(BffApplication.class, args);
 	}
 
