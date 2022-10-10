@@ -10,9 +10,9 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 public class PreparationInfo {
-    private List<PreparationItem> ready;
-    private List<PreparationItem> served;
-    private List<PreparationItem> unready;
+    public List<PreparationItem> ready;
+    public List<PreparationItem> served;
+    public List<PreparationItem> unready;
 
     public PreparationInfo() {
         ready = new ArrayList<>();

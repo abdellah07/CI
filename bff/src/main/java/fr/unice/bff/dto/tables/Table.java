@@ -11,4 +11,9 @@ public class Table {
     private int number;
     private boolean taken;
     private String tableOrderId;
+
+    public int getNumber() {
+        return number;
+    }
 }
+

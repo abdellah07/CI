@@ -1,6 +1,7 @@
 package fr.unice.bff.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import fr.unice.bff.dto.menu.MenuItem;
 import fr.unice.bff.dto.tables.Table;
 import fr.unice.bff.exception.TableNotFoundException;
 import fr.unice.bff.util.ExternalCall;
@@ -46,16 +47,17 @@ public class TableService {
         }
     }
 
-    private List<Table> getTables() throws TableNotFoundException {
+    public List<Table> getTables() {
         String json = call(tableInfoURL);
+        Table[]tables = new Table[0];
         try {
-            List<Table> tablesList = Arrays.asList(JsonMapper.objectMapper.readValue(json, Table[].class));
-            return tablesList;
+            tables = JsonMapper.objectMapper.readValue(json, Table[].class);
+
         } catch (JsonProcessingException e) {
             logger.error("Problem in getting table info");
-            int i = 0;
-            throw new TableNotFoundException(i);
         }
+        List<Table> tablesList = Arrays.asList(tables);
+        return tablesList;
     }
 
     public ResponseEntity<String> getAllTable(){
