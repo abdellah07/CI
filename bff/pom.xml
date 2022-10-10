@@ -15,6 +15,8 @@
 	<description>Backend For Frontend (BFF) architecture is the key to enhanced and improved user experience. A BFF layer consists of multiple backends developed to address the needs of respective frontend frameworks, like desktop, browser, and native-mobile apps.</description>
 	<properties>
 		<java.version>17</java.version>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
 	</properties>
 	<dependencies>
 		<dependency>
