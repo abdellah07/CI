@@ -31,9 +31,9 @@ public class PreparationController {
         }
     }
 
-    @GetMapping(BASE_URI + "/serve")
-    public ResponseEntity<PreparationInfo> serveItems(@PathVariable("tableId") int tableId) {
+    @PostMapping(BASE_URI + "/serve/{tableId}")
+    public void serveItems(@PathVariable("tableId") int tableId) {
+        logger.info("CALLING SERVING");
         preparationService.serve(tableId);
-        return null;
     }
 }

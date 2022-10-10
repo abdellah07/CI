@@ -90,15 +90,22 @@ public class PreparationService {
 
     public void serve(int tableId) {
         String baseUrl = preparationURL + preparationsSubdirectory;
+        String tableIdPathVariable = "tableId=" + tableId;
+        String readyUrl = preparationURL + preparationsSubdirectory + "?" + readyStatePathVariable + "&" + tableIdPathVariable;
+
+        String readyJson = ExternalCall.call(readyUrl);
         try {
-            PreparationInfo preparationInfo = getPreparationInfo(tableId);
-            for (PreparationItem preparationItem : preparationInfo.getReady()) {
-                String prepareURL = baseUrl + "/" + preparationItem.getId() + "/takenToTable";
+            Preparation[] readyItems = JsonMapper.objectMapper.readValue(readyJson, Preparation[].class);
+
+            for (Preparation preparation : readyItems) {
+                String prepareURL = baseUrl + "/" + preparation.getId() + "/takenToTable";
+                logger.info("sending serve to " + prepareURL);
                 ExternalCall.send(prepareURL);
             }
         } catch (JsonProcessingException e) {
             logger.error("Problem in serving Order");
         }
+
     }
 
 

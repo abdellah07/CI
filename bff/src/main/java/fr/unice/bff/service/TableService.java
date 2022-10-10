@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.http.ResponseEntity;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,10 +22,10 @@ public class TableService {
 
     private Logger logger = LoggerFactory.getLogger(TableService.class);
     private static String tableBaseUrl = BaseUrl.getDinning();
-    private static final String tableInfoURL = tableBaseUrl + "/tables/";
+    private static final String tableInfoURL = tableBaseUrl + "/tables";
 
     public boolean tableIsTaken(int tableId) throws TableNotFoundException {
-        String json = call(tableInfoURL + tableId);
+        String json = call(tableInfoURL + "/" + tableId);
         Table tableInfoResponse;
         try {
             tableInfoResponse = JsonMapper.objectMapper.readValue(json, Table.class);
@@ -36,7 +37,7 @@ public class TableService {
     }
 
     public Table getTableInfo(int tableId) throws TableNotFoundException {
-        String json = call(tableInfoURL + tableId);
+        String json = call(tableInfoURL + "/" + tableId);
         Table tableInfoResponse;
         try {
             tableInfoResponse = JsonMapper.objectMapper.readValue(json, Table.class);
@@ -49,7 +50,7 @@ public class TableService {
 
     public List<Table> getTables() {
         String json = call(tableInfoURL);
-        Table[]tables = new Table[0];
+        Table[] tables = new Table[0];
         try {
             tables = JsonMapper.objectMapper.readValue(json, Table[].class);
 
@@ -60,7 +61,7 @@ public class TableService {
         return tablesList;
     }
 
-    public ResponseEntity<String> getAllTable(){
+    public ResponseEntity<String> getAllTable() {
         ResponseEntity<String> response = ExternalCall.send(tableInfoURL, Table[].class);
         return response;
     }
