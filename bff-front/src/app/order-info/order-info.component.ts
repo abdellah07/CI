@@ -17,7 +17,7 @@ export class OrderInfoComponent implements OnInit {
   tableId: number = 0;
 
 
-  constructor(private orderService: OrderService ,private paymentServer:PaymentService, private orderInfoService: OrderInfoService, private route: ActivatedRoute, private router: Router) {
+  constructor(private orderService: OrderService, private paymentServer: PaymentService, private orderInfoService: OrderInfoService, private route: ActivatedRoute, private router: Router) {
     this.orderInfoService.orderInfo$.subscribe((orderInfo: OrderInfo) => {
       this.orderInfo = orderInfo;
     });
@@ -37,12 +37,8 @@ export class OrderInfoComponent implements OnInit {
   }
 
   onPaymentClick() {
-    try {
-      this.paymentServer.pay(this.tableId);
-    }
-    catch (e){
-      this.router.navigate(["/table-list"]);
-    }
+    this.paymentServer.pay(this.tableId);
+    this.router.navigate(["/table-list"]);
   }
 
   onServeClick() {

@@ -1,10 +1,12 @@
 package fr.unice.bff.dto.payment;
 
+import fr.unice.bff.dto.menu.MenuItem;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
-@NoArgsConstructor
 public class PaymentInfo {
-    private String billed;
+    private List<MenuItem> menuItems;
+    private long total;
 }

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import static fr.unice.bff.util.ExternalCall.call;
+import static fr.unice.bff.util.ExternalCall.send;
 
 @Service
 public class MenuService {
@@ -27,4 +28,16 @@ public class MenuService {
         }
         return Arrays.stream(menuInfoList).toList();
     }
+
+    public MenuItem retrieveMenuById(String id) {
+        MenuItem menuInfo = null;
+        try {
+            String json = call(menuUrl + "/" + id);
+            menuInfo = JsonMapper.objectMapper.readValue(json, MenuItem.class);
+        } catch (JsonProcessingException e) {
+            System.out.println("Problem in calling MENU API");
+        }
+        return menuInfo;
+    }
+
 }

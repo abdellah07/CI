@@ -6,6 +6,7 @@ import fr.unice.bff.dto.tables.Table;
 import fr.unice.bff.exception.OrderException;
 import fr.unice.bff.exception.TableNotFoundException;
 import fr.unice.bff.exception.TableWithoutOrderId;
+import fr.unice.bff.models.lines.Lines;
 import fr.unice.bff.models.preparation.PreparationResponse;
 import fr.unice.bff.util.ExternalCall;
 import fr.unice.bff.util.JsonMapper;
@@ -100,4 +101,9 @@ public class OrderService {
         return preparationResponse;
     }
 
+    public Lines getOrderLines(String orderId) throws JsonProcessingException {
+        String orderJson = ExternalCall.call(dinningURL + tableOrderSubdirectory + "/" + orderId);
+        Lines lines = JsonMapper.objectMapper.readValue(orderJson, Lines.class);
+        return lines;
+    }
 }

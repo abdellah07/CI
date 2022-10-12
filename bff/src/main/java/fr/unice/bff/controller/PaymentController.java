@@ -1,14 +1,13 @@
 package fr.unice.bff.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import fr.unice.bff.dto.dining.OrderItem;
-import fr.unice.bff.dto.tables.Table;
+import fr.unice.bff.dto.payment.Payment;
+import fr.unice.bff.dto.payment.PaymentInfo;
 import fr.unice.bff.exception.TableNotFoundException;
 import fr.unice.bff.service.PaymentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -27,5 +26,10 @@ public class PaymentController {
     public boolean validatePayment(@PathVariable("tableId") int tableId) throws TableNotFoundException, JsonProcessingException {
         logger.info("calling Payment service ");
         return paymentService.validatePayment(tableId);
+    }
+
+    @GetMapping(BASE_URI + "/info/{tableId}")
+    public PaymentInfo paymentInfo(@PathVariable("tableId") int tableId) throws TableNotFoundException, JsonProcessingException {
+        return paymentService.getPaymentInfo(tableId);
     }
 }
