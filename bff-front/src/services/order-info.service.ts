@@ -24,4 +24,5 @@ export class OrderInfoService {
       this.orderInfo$.next(this.orderInfos);
     });
   }
+
 }

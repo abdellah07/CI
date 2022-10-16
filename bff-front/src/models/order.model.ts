@@ -2,6 +2,7 @@ export class Item {
   id: String = "";
   shortName: String = "";
   howMany: number = 0;
+  price?: number;
 }
 
 export interface Order {

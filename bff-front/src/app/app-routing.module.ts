@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TableListComponent } from './table-list/table-list.component';
 import {MenuListComponent} from "./menu-list/menu-list.component";
 import {OrderInfoComponent} from "./order-info/order-info.component";
+import {PaymentComponent} from "./payment/payment.component";
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'table-list',
     component: TableListComponent,
+  },
+  {
+    path: 'payment/:tableId',
+    component: PaymentComponent
   },
   {
     path: 'order-info/:tableId',

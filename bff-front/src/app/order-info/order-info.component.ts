@@ -37,8 +37,7 @@ export class OrderInfoComponent implements OnInit {
   }
 
   onPaymentClick() {
-    this.paymentServer.pay(this.tableId);
-    this.router.navigate(["/table-list"]);
+    this.router.navigate(["/payment/" + this.tableId]);
   }
 
   onServeClick() {
