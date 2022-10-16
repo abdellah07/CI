@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TableService} from "../../services/table.service";
 import {Colors, Table} from "../../models/table.model";
+import {interval} from "rxjs";
 
 @Component({
   selector: 'app-table-list',
@@ -17,6 +18,7 @@ export class TableListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    interval(1000).subscribe(n => this.tableService.retrieveTables());
   }
 
   onTableCLick(table : Table): void {
