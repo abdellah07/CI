@@ -5,6 +5,7 @@ import {orderInfoList} from "../../mocks/orderinfo.mock";
 import {ActivatedRoute, Router} from "@angular/router";
 import {OrderService} from "../../services/order.service";
 import {PaymentService} from "../../services/payment.service";
+import {TableInfo} from "../../models/table.model";
 
 @Component({
   selector: 'app-order-info',
@@ -37,7 +38,9 @@ export class OrderInfoComponent implements OnInit {
   }
 
   onPaymentClick() {
-    this.router.navigate(["/payment/" + this.tableId]);
+    if(this.orderInfo.unready.length == 0 && this.orderInfo.ready.length == 0) {
+      this.router.navigate(["/payment/" + this.tableId]);
+    }
   }
 
   onServeClick() {
