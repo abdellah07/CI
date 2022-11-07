@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="bff" />
+        <module name="dining-service" />
+        <module name="test" />
+        <module name="menu-service" />
+        <module name="kitchen-service" />
+        <module name="gateway" />
+        <module name="integration-tests" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="bff" target="1.5" />
+      <module name="dining-service" target="1.5" />
+      <module name="gateway" target="1.5" />
+      <module name="integration-tests" target="1.5" />
+      <module name="kitchen-service" target="1.5" />
+      <module name="menu-service" target="1.5" />
+      <module name="restaurant" target="1.5" />
+      <module name="test" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

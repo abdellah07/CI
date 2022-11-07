@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/CI.iml" filepath="$PROJECT_DIR$/.idea/CI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bff/bff.iml" filepath="$PROJECT_DIR$/bff/bff.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/dining-service/dining-service.iml" filepath="$PROJECT_DIR$/spring/dining-service/dining-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/gateway/gateway.iml" filepath="$PROJECT_DIR$/spring/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/integration-tests/integration-tests.iml" filepath="$PROJECT_DIR$/spring/integration-tests/integration-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/kitchen-service/kitchen-service.iml" filepath="$PROJECT_DIR$/spring/kitchen-service/kitchen-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/menu-service/menu-service.iml" filepath="$PROJECT_DIR$/spring/menu-service/menu-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/restaurant.iml" filepath="$PROJECT_DIR$/spring/restaurant.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
+    </modules>
+  </component>
+</project>
