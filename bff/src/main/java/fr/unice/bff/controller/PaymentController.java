@@ -28,6 +28,12 @@ public class PaymentController {
         return paymentService.validatePayment(tableId);
     }
 
+    @PostMapping(BASE_URI + "/{tableId}/{price}")
+    public void validatePayment(@PathVariable("tableId") int tableId, @PathVariable("tableId") int price) throws TableNotFoundException, JsonProcessingException {
+        logger.info("calling Payment service ");
+        paymentService.validatePayment(tableId, price);
+    }
+
     @GetMapping(BASE_URI + "/info/{tableId}")
     public PaymentInfo paymentInfo(@PathVariable("tableId") int tableId) throws TableNotFoundException, JsonProcessingException {
         return paymentService.getPaymentInfo(tableId);
