@@ -77,9 +77,11 @@ public class PaymentService {
             moneyByTable.put(tableid, new SoloPayment());
         }
         moneyByTable.get(tableid).addToTotal(money);
-        if (moneyByTable.get(tableid).getTotal() == paymentInfo.getTotal()) {
+        logger.info("PAYMENT CLIENT " +money);
+        if (moneyByTable.get(tableid).getTotal() >= paymentInfo.getTotal()) {
             validatePayment(tableid);
             moneyByTable.get(tableid).setTotal(0);
+            logger.info("PAYMENT TOTAL DONE");
         }
     }
 }
