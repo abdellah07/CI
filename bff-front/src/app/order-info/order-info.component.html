@@ -1,26 +1,17 @@
 <div class="container" id="buttons">
   <div class="col-md-6 col-sm-6 col-xs-6">
-    <button type="button" class="btn btn-warning col-md-5 col-sm-5 col-xs-11" (click)="onServeClick()">SERVE</button>
-    <div class="col-md-1 col-sm-1 col-xs-0"></div>
-    <button type="button" class="btn btn-success col-md-5 col-sm-5 col-xs-11" (click)="onAddClick()">ADD ITEM</button>
+    <button type="button" class="btn btn-success col-md-5 col-sm-5 col-xs-11" (click)="onAddClick()">GAME</button>
   </div>
   <div class="col-md-6 col-sm-6 col-xs-6">
     <button type="button" class="btn btn-info col-md-5 col-sm-5 col-xs-11" (click)="onPaymentClick()">PAYMENT</button>
-    <div class="col-md-1 col-sm-1 col-xs-0"></div>
-    <button type="button" class="btn btn-danger col-md-5 col-sm-5 col-xs-11" [routerLink]="''">GO BACK</button>
   </div>
 </div>
 <div class="container">
   <ul class="list-group">
     <li class="list-group-item list-group-item-success">Ready Items</li>
     <li class="list-group-item" *ngFor="let ready of orderInfo.ready"> {{ ready.shortName }} </li>
-  </ul>
-
-  <ul class="list-group">
-    <li class="list-group-item list-group-item-info">served items</li>
     <li class="list-group-item" *ngFor="let served of orderInfo.served"> {{ served.shortName }} </li>
   </ul>
-
   <ul class="list-group">
     <li class="list-group-item list-group-item-warning">In preparation</li>
     <li class="list-group-item" *ngFor="let unready of orderInfo.unready"> {{ unready.shortName }} </li>

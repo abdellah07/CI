@@ -36,11 +36,11 @@ export class PaymentComponent implements OnInit {
     }
     else
       this.tableId = parseInt(idT);
-    this.paymentService.getOrderList(this.tableId)
+    this.paymentService.getOrderList()
   }
 
   pay(): void {
-    this.paymentService.pay(this.tableId);
+    this.paymentService.pay();
     this.router.navigate(["/table-list/"]);
   }
 

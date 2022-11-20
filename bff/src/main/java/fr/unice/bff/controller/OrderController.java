@@ -22,7 +22,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RestController
 @RequestMapping(produces = APPLICATION_JSON_VALUE)
 public class OrderController {
-    public static final String BASE_URI = "/order";
+    public static final String BASE_URI = "/order" ;
 
     private Logger logger = LoggerFactory.getLogger(OrderController.class);
     @Autowired

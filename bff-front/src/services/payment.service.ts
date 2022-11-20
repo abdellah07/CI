@@ -12,6 +12,8 @@ export class PaymentService {
   constructor(private http: HttpClient) {
   }
 
+  tableId: number = 0;
+
   itemList: Item[] = [];
 
   public itemList$: BehaviorSubject<Item[]> = new BehaviorSubject(this.itemList);
@@ -19,17 +21,17 @@ export class PaymentService {
   private paymentUrl = bffURL + '/payment';
   private url = bffURL + '/order';
 
-  pay(tableId: number){
+  pay(){
     let paymentAccepted;
-    let url = this.paymentUrl + "/" + tableId;
+    let url = this.paymentUrl + "/" + this.tableId;
     this.http.post<Boolean>(url, paymentAccepted, {headers: new HttpHeaders(headerOptions)}).subscribe((paymentResult) => {
       paymentAccepted = paymentResult;
       if(!paymentAccepted) throw new Error('payment refused');
     });
   }
 
-  getOrderList(tableId: number){
-    let url = this.url + "/" + tableId;
+  getOrderList(){
+    let url = this.url + "/" + this.tableId;
     this.http.get<Item[]>(url,{headers: new HttpHeaders(headerOptions)}).subscribe((paymentResult) => {
       this.itemList = paymentResult;
       this.itemList$.next(this.itemList);

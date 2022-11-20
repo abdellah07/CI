@@ -1,18 +1,17 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {OrderInfo} from "../../models/orderinfo.model";
-import {OrderInfoService} from "../../services/order-info.service";
 import {orderInfoList} from "../../mocks/orderinfo.mock";
-import {ActivatedRoute, Router} from "@angular/router";
 import {OrderService} from "../../services/order.service";
 import {PaymentService} from "../../services/payment.service";
-import {TableInfo} from "../../models/table.model";
+import {OrderInfoService} from "../../services/order-info.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
-  selector: 'app-order-info',
-  templateUrl: './order-info.component.html',
-  styleUrls: ['./order-info.component.css']
+  selector: 'app-game',
+  templateUrl: './game.component.html',
+  styleUrls: ['./game.component.css']
 })
-export class OrderInfoComponent implements OnInit {
+export class GameComponent implements OnInit {
 
   orderInfo: OrderInfo = orderInfoList;
   tableId: number = 0;
@@ -25,11 +24,11 @@ export class OrderInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.orderInfoService.retrieveOrderInfoList();
+
   }
 
   onAddClick() {
-    this.router.navigate(["/game"]);
+    this.router.navigate(["/order-info"]);
   }
 
   onPaymentClick() {
@@ -42,4 +41,5 @@ export class OrderInfoComponent implements OnInit {
     this.orderService.serve(this.tableId);
     this.router.navigate([""]);
   }
+
 }

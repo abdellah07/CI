@@ -14,11 +14,13 @@ export class OrderInfoService {
 
   public orderInfo$: BehaviorSubject<OrderInfo> = new BehaviorSubject(this.orderInfos);
 
+  tableId: number = 0;
+
   constructor(private http: HttpClient) {
   }
 
-  retrieveOrderInfoList(tableId: number) {
-    let url = orderinfoUrl + "/" + tableId;
+  retrieveOrderInfoList() {
+    let url = orderinfoUrl + "/" + this.tableId;
     this.http.get<OrderInfo>(url, {headers: new HttpHeaders(headerOptions)}).subscribe((orderInfos) => {
       this.orderInfos = orderInfos;
       this.orderInfo$.next(this.orderInfos);
