@@ -8,9 +8,9 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class PreparationResponse {
-    private List<Preparation> preparationList;
+    private List<Preparation> preparations;
 
     public PreparationResponse() {
-        preparationList = new ArrayList<>();
+        preparations = new ArrayList<>();
     }
 }

@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { TableListComponent } from './table-list/table-list.component';
 import {MenuListComponent} from "./menu-list/menu-list.component";
 import {OrderInfoComponent} from "./order-info/order-info.component";
+import {PaymentComponent} from "./payment/payment.component";
+import {GameComponent} from "./game/game.component";
+import {ConfigComponent} from "./config/config.component";
 
 const routes: Routes = [
   {
@@ -14,12 +17,24 @@ const routes: Routes = [
     component: TableListComponent,
   },
   {
-    path: 'order-info/:tableId',
+    path: 'payment/:tableId',
+    component: PaymentComponent
+  },
+  {
+    path: 'order-info',
     component: OrderInfoComponent,
   },
   {
+    path: 'game',
+    component: GameComponent,
+  },
+  {
+    path: 'config',
+    component: ConfigComponent,
+  },
+  {
     path: '',
-    redirectTo: 'table-list',
+    redirectTo: 'config',
     pathMatch: 'full',
   }
 ];

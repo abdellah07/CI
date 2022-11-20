@@ -7,6 +7,15 @@ export interface Table {
     status: TableStatus;
 }
 
+export interface TableInfo {
+  available: Table[];
+  waitingForPayment: Table[];
+  payed: Table[];
+  inPreparation: Table[];
+  orderReady: Table[];
+  noInfo: Table[];
+}
+
 export enum Colors {
   GREEN = "green",
   RED = "red",

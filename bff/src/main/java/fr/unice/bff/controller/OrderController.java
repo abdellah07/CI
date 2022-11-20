@@ -1,6 +1,8 @@
 package fr.unice.bff.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import fr.unice.bff.dto.dining.OrderItem;
+import fr.unice.bff.dto.menu.MenuItem;
 import fr.unice.bff.dto.tables.Table;
 import fr.unice.bff.exception.TableNotFoundException;
 import fr.unice.bff.service.OrderService;
@@ -12,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -19,7 +22,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RestController
 @RequestMapping(produces = APPLICATION_JSON_VALUE)
 public class OrderController {
-    public static final String BASE_URI = "/order";
+    public static final String BASE_URI = "/order" ;
 
     private Logger logger = LoggerFactory.getLogger(OrderController.class);
     @Autowired
@@ -39,6 +42,20 @@ public class OrderController {
             throw new TableNotFoundException(tableId);
         }
         return orderService.makeAnOrder(itemInfoList, table);
+    }
+
+    @GetMapping(BASE_URI + "/{tableId}")
+    public ResponseEntity<List<MenuItem>> getOrder(@PathVariable("tableId") int tableId) throws JsonProcessingException{
+        List<MenuItem> menuItems = new ArrayList<>();
+        try {
+            menuItems = this.orderService.getAllMenuItemFromTableId(tableId);
+        } catch (JsonProcessingException ex) {
+            logger.error("Error in Json");
+            throw ex;
+        }
+
+        return ResponseEntity.ok(menuItems);
+
     }
 
     @PostMapping(BASE_URI + "/{tableId}/status")

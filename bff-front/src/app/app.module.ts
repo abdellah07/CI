@@ -11,6 +11,10 @@ import { MenuComponent } from './menu/menu.component';
 import { MenuListComponent } from './menu-list/menu-list.component';
 import { OrderComponent } from './order/order.component';
 import { OrderInfoComponent } from './order-info/order-info.component';
+import { PaymentComponent } from './payment/payment.component';
+import { GameComponent } from './game/game.component';
+import { ConfigComponent } from './config/config.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,14 +24,18 @@ import { OrderInfoComponent } from './order-info/order-info.component';
     MenuComponent,
     MenuListComponent,
     OrderComponent,
-    OrderInfoComponent
+    OrderInfoComponent,
+    PaymentComponent,
+    GameComponent,
+    ConfigComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    NgbModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        NgbModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

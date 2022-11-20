@@ -2,6 +2,7 @@ package fr.unice.bff.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import fr.unice.bff.dto.preparation.PreparationInfo;
+import fr.unice.bff.exception.TableNotFoundException;
 import fr.unice.bff.service.PreparationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +29,15 @@ public class PreparationController {
         } catch (JsonProcessingException e) {
             logger.error(e.getMessage());
             return (ResponseEntity<PreparationInfo>) ResponseEntity.badRequest();
+        } catch (TableNotFoundException e) {
+            logger.error(e.getMessage());
+            return (ResponseEntity<PreparationInfo>) ResponseEntity.badRequest();
         }
+    }
 
+    @PostMapping(BASE_URI + "/serve/{tableId}")
+    public void serveItems(@PathVariable("tableId") int tableId) {
+        logger.info("CALLING SERVING");
+        preparationService.serve(tableId);
     }
 }

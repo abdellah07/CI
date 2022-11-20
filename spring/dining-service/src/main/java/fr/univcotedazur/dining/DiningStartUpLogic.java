@@ -31,6 +31,21 @@ public class DiningStartUpLogic implements ApplicationRunner {
             tablesLayout.addTable(1L);
             tablesLayout.addTable(2L);
             tablesLayout.addTable(3L);
+            tablesLayout.addTable(4L);
+            tablesLayout.addTable(5L);
+            tablesLayout.addTable(6L);
+            tablesLayout.addTable(7L);
+            tablesLayout.addTable(8L);
+            tablesLayout.addTable(9L);
+            tablesLayout.addTable(10L);
+            tablesLayout.addTable(11L);
+            tablesLayout.addTable(12L);
+            tablesLayout.addTable(13L);
+            tablesLayout.addTable(14L);
+            tablesLayout.addTable(15L);
+            tablesLayout.addTable(16L);
+            tablesLayout.addTable(17L);
+            tablesLayout.addTable(18L);
         }
     }
 

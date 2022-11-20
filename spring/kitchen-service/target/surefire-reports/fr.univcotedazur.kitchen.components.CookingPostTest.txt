@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: fr.univcotedazur.kitchen.components.CookingPostTest
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.551 s - in fr.univcotedazur.kitchen.components.CookingPostTest

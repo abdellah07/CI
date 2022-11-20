@@ -1,0 +1,12 @@
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item list-group-item-success">Ordered Items</li>
+    <li class="list-group-item" *ngFor="let item of itemList"> {{ item.shortName }} {{item.price}}</li>
+  </ul>
+  <div>
+    <p class="list-group-item list-group-item-info">{{this.total}}</p>
+  </div>
+  <div class="but">
+    <button type="button" class="btn btn-success col-md-5 col-sm-5 col-xs-11" (click)="pay()">Pay</button>
+  </div>
+</div>

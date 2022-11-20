@@ -2,16 +2,25 @@ package fr.unice.bff.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import fr.unice.bff.dto.dining.*;
+import fr.unice.bff.dto.menu.MenuItem;
+import fr.unice.bff.models.preparation.*;
 import fr.unice.bff.dto.tables.Table;
 import fr.unice.bff.exception.OrderException;
+import fr.unice.bff.exception.TableNotFoundException;
+import fr.unice.bff.exception.TableWithoutOrderId;
+import fr.unice.bff.models.lines.Lines;
+import fr.unice.bff.models.preparation.PreparationItem;
+import fr.unice.bff.models.preparation.PreparationResponse;
 import fr.unice.bff.util.ExternalCall;
 import fr.unice.bff.util.JsonMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -22,6 +31,11 @@ public class OrderService {
     private static final Logger logger = LoggerFactory.getLogger(OrderService.class);
     private static final String tableOrderSubdirectory = "/tableOrders";
     private static final String prepareSubdirectory = "/prepare";
+
+    @Autowired
+    private TableService tableService;
+    @Autowired
+    private MenuService menuService;
 
 
     public ResponseEntity<String> makeAnOrder(List<OrderItem> itemList, Table table) {
@@ -79,5 +93,51 @@ public class OrderService {
         return response;
     }
 
+    public PreparationResponse getAllPreparations(int tableId) throws TableNotFoundException, JsonProcessingException, TableWithoutOrderId {
+        String orderTable = tableService.getTableInfo(tableId).getTableOrderId();
+        if (orderTable == null) {
+            logger.warn("Table id is null");
+            throw new TableWithoutOrderId(tableId);
+        }
+        String url = dinningURL + tableOrderSubdirectory + "/" + orderTable;
 
+        String preperationsJson = ExternalCall.call(url);
+
+        PreparationResponse preparationResponse = JsonMapper.objectMapper.readValue(preperationsJson, PreparationResponse.class);
+        return preparationResponse;
+    }
+
+    public Lines getOrderLines(String orderId) throws JsonProcessingException {
+        String orderJson = ExternalCall.call(dinningURL + tableOrderSubdirectory + "/" + orderId);
+        Lines lines = JsonMapper.objectMapper.readValue(orderJson, Lines.class);
+        return lines;
+    }
+
+    public List<MenuItem> getAllMenuItemFromTableId(int tableId) throws JsonProcessingException {
+
+        List<Preparation> preparation;
+        List<MenuItem> menuItems = new ArrayList<>();
+        List<MenuItem> menu;
+        try {
+            preparation = getAllPreparations(tableId).getPreparations();
+            menu = menuService.retrieveMenu();
+            // really messy code but well it works
+            for(Preparation prep: preparation){
+                for(PreparationItem prepItem: prep.getPreparedItems()){
+                    for(MenuItem m : menu){
+                        if(m.getShortName().equals(prepItem.getShortName())){
+                            menuItems.add(m);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        catch(TableNotFoundException|TableWithoutOrderId ex){
+            return menuItems;
+        } catch (JsonProcessingException ex){
+            throw ex;
+        }
+        return menuItems;
+    }
 }

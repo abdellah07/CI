@@ -25,10 +25,10 @@ public class PreparationInfo {
     }
 
     public void addServedItems(List<PreparationItem> served) {
-        this.ready.addAll(served);
+        this.served.addAll(served);
     }
 
     public void addUnreadyItems(List<PreparationItem> unready) {
-        this.ready.addAll(unready);
+        this.unready.addAll(unready);
     }
 }
